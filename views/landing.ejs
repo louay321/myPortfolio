@@ -1,0 +1,79 @@
+<%- include("/Users/macbookpro/Desktop/portfolio/partials/header.ejs"); -%>
+  <div class="terminal-container">
+
+    <% terminal.forEach(function(post){%>
+    <h1 class="terminal-text">$> <%=post%></h1>
+    <% }) %>
+
+
+    <h1 class="terminal-text">$> <span id="textInput" name="textInput"></span><span class="cursor">_</span></h1>
+
+  </div>
+
+  <form class="hidden" action="/" method="post" id="my-form">
+
+    <input type="text" id="sendText" name="sendText" value="">
+
+  </form>
+  <script src="winbox.bundle.js">
+  </script>
+  <script type="text/javascript">
+    var textIn = document.getElementById('textInput');
+    var stringIn = "";
+    var form = document.getElementById("my-form");
+    window.addEventListener('keydown', (key)=> {
+      console.log(key);
+      keypressed = key.key;
+      stringIn += keypressed;
+      console.log("string is "+stringIn);
+      textIn.innerHTML = stringIn;
+      if(keypressed == 'Enter'){
+        stringIn = stringIn.slice(0,-5);
+        if(stringIn.toLowerCase() == 'y' || stringIn.toLowerCase() == 'yes'){
+          document.getElementById("sendText").value = stringIn;
+          stringIn = '';
+          textIn.innerHTML = 'logging to session...';
+          setTimeout(()=>
+            form.submit(), 2000);
+        }
+        else if(stringIn.toLowerCase() == 'man' || stringIn.toLowerCase() == 'manual' || stringIn.toLowerCase() == 'h' ||  stringIn.toLowerCase() == 'help'){
+          textIn.innerHTML = "List of useful commands:" + '\n'
+                              +"c or clear : clear out the terminal ";
+          stringIn = '';
+        }
+        else if(stringIn.toLowerCase() == 'c' || stringIn.toLowerCase() == 'clear'){
+          document.getElementById("sendText").value = stringIn;
+          form.submit();
+        }
+        else if(stringIn.toLowerCase() == 'pwd'){
+          document.getElementById("sendText").value = "~/visitor/";
+          form.submit();
+        }
+        else if(stringIn.toLowerCase() == 'ls'){
+          document.getElementById("sendText").value = "home    profile      projects";
+          form.submit();
+        }
+        else if(stringIn.toLowerCase() == 'cd home'){
+          document.getElementById("sendText").value = 'cd home';
+          form.submit();
+        }
+        else{
+          stringIn = "uknown command '"+stringIn+"'";
+          textIn.innerHTML = stringIn;
+          document.getElementById("sendText").value = stringIn;
+
+          form.submit();
+        }
+
+      }
+      if(keypressed == 'Backspace'){
+        stringIn = stringIn.slice(0, -10);
+        textIn.innerHTML = stringIn;
+      }
+
+    });
+  </script>
+  <script type="text/javascript">
+    window.scroll(0, document.documentElement.scrollHeight);
+  </script>
+<%- include("/Users/macbookpro/Desktop/portfolio/partials/footer.ejs"); -%>

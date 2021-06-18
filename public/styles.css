@@ -1,0 +1,39 @@
+html{
+  background-color: #1B1B1B;
+  font-family: 'Source Code Pro', monospace;
+}
+h1{
+  color: #fff;
+}
+
+h2{
+  color: green;
+}
+.hidden{
+  display: none;
+}
+.cursor{
+  font-weight: 700;
+  animation: 1s blink step-end infinite;
+
+}
+
+@keyframes blink {
+  from,
+   to {
+      color: transparent;
+  }
+  50%{
+    color: var(--text-color);
+  }
+}
+.terminal-container{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+.terminal-text{
+  font-size: 1.5rem;
+  padding-top: 20px;
+}
