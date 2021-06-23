@@ -32,7 +32,7 @@
         if(stringIn.toLowerCase() == 'y' || stringIn.toLowerCase() == 'yes'){
           document.getElementById("sendText").value = stringIn;
           stringIn = '';
-          textIn.innerHTML = 'logging to session...';
+          textIn.innerHTML = 'connecting to session...';
           setTimeout(()=>
             form.submit(), 2000);
         }
@@ -50,7 +50,7 @@
           form.submit();
         }
         else if(stringIn.toLowerCase() == 'ls'){
-          document.getElementById("sendText").value = "home    profile      projects";
+          document.getElementById("sendText").value = "/home    /profile     /projects";
           form.submit();
         }
         else if(stringIn.toLowerCase() == 'cd home'){
