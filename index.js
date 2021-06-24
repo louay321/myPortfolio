@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const _ = require('lodash');
 
 const landingContent = "";
-const homeContent = "haya hak jit ya weld l9a7ba jad 3lik bsh tnik?"
+const homeContent = "Hi, i'm Louay. a Software Engineer"
 
 const app = express();
 app.set('view engine', 'ejs');

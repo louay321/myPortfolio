@@ -7,7 +7,7 @@ h1{
 }
 
 h2{
-  color: green;
+  color: #fff;
 }
 .hidden{
   display: none;
@@ -36,4 +36,16 @@ h2{
 .terminal-text{
   font-size: 1.5rem;
   padding-top: 20px;
+}
+.content-text{
+
+}
+.flex-container{
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  /*align-items: stretch;*/
+}
+.flex-item{
+  margin: 40px 5%;
 }
